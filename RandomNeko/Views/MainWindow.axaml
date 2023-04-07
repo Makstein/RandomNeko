@@ -45,6 +45,49 @@
                 Background="Transparent"
                 IsHitTestVisible="True"
                 Items="{Binding ConverMessages}">
+                <ListBox.Resources>
+                    <DataTemplate x:Key="chatSend">
+                        <StackPanel
+                            x:Name="SendMsg"
+                            Margin="0,12,20,0"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+                            <StackPanel Margin="0,0,10,0" Orientation="Vertical">
+                                <!--  消息内容  -->
+                                <Border
+                                    MinWidth="50"
+                                    MinHeight="30"
+                                    MaxWidth="{Binding Path=ActualWidth, ElementName=borderWidth}"
+                                    Background="#c8dd1f"
+                                    BorderBrush="#ddd"
+                                    BorderThickness="1"
+                                    CornerRadius="8,0,8,8">
+                                    <TextBox
+                                        MinWidth="30"
+                                        Margin="8"
+                                        VerticalAlignment="Center"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        FontSize="14"
+                                        IsReadOnly="True"
+                                        Text="{Binding Msg}"
+                                        TextWrapping="WrapWithOverflow" />
+                                </Border>
+                            </StackPanel>
+                            <!--  头像  -->
+                            <Border
+                                Width="35"
+                                Height="35"
+                                Margin="0,2,0,0"
+                                VerticalAlignment="Top"
+                                BorderThickness="0">
+                                <Border.Background>
+                                    <!--<ImageBrush ImageSource="/img/user.jpg" />-->
+                                </Border.Background>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.Resources>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel
