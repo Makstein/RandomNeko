@@ -6,8 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:RandomNeko.ViewModels"
     Title="RandomNeko"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    Width="1000"
+    Height="600"
+    d:DesignHeight="600"
+    d:DesignWidth="1000"
     Background="Transparent"
     ExtendClientAreaToDecorationsHint="True"
     Icon="/Assets/avalonia-logo.ico"
@@ -41,10 +43,23 @@
             <ListBox
                 x:Name="MessageHistoryBox"
                 Grid.Row="0"
-                Margin="10,30,10,10"
+                Margin="10,40,10,10"
                 Background="Transparent"
                 IsHitTestVisible="True"
                 Items="{Binding ConverMessages}">
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.Styles>
+                    <Style Selector="ListBoxItem">
+                        <Setter Property="Padding" Value="0" />
+                    </Style>
+                </ListBox.Styles>
+
                 <ListBox.Resources>
                     <DataTemplate x:Key="chatSend">
                         <StackPanel
